@@ -2,6 +2,7 @@
 import time
 import math
 import asyncio
+from node.engine.ws.node import Node
 from node.engine.ws.task import Task as Agent
 from naptha_sdk.utils import get_logger
 
@@ -19,15 +20,20 @@ async def run(inputs, worker_nodes=None, orchestrator_node=None, flow_run=None, 
     ist = time.time()
     logger.info(f"Running {num_agents} agents...")
 
+    # get worker node urls
+    worker_node_urls = [node.url for node in worker_nodes]
+
     try:
         tasks = []
         for i in range(num_agents):
             node_index = min(i // agents_per_node, num_nodes - 1)
+            worker_node_url = worker_node_urls[node_index]
+            worker_node = Node(url=worker_node_url)
             name = f"Agent_{i}"
             agent = Agent(
                 name=name, 
                 fn="random_number_agent", 
-                worker_node=worker_nodes[node_index], 
+                worker_node=worker_node, 
                 orchestrator_node=orchestrator_node, 
                 flow_run=flow_run
             )

@@ -28,7 +28,7 @@ async def run(inputs, worker_nodes=None, orchestrator_node=None, flow_run=None, 
         for i in range(num_agents):
             node_index = min(i // agents_per_node, num_nodes - 1)
             worker_node_url = worker_node_urls[node_index]
-            worker_node = Node(url=worker_node_url)
+            worker_node = Node(worker_node_url)
             name = f"Agent_{i}"
             agent = Agent(
                 name=name, 

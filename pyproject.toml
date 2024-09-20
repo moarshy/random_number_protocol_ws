@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "random_number_protocol_ws"
+version = "0.1.0"
+description = ""
+authors = ["Mohamed Arshath <marshath@gmail.com>"]
+readme = "README.md"
+packages = [
+    {include = "random_number_protocol_ws", from="."}
+]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

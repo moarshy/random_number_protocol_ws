@@ -1,0 +1,10 @@
+name: random_number_protocol_ws
+type: random_number_protocol_ws
+author: naptha
+version: 0.1.0
+description: Multi-agent protocol for guessing random numbers.
+license: MIT
+
+implementation:
+    package:
+        entrypoint: run.py

@@ -21,7 +21,7 @@ async def run(inputs, worker_nodes=None, orchestrator_node=None, flow_run=None, 
     logger.info(f"Running {num_agents} agents...")
 
     # get worker node urls
-    worker_node_urls = [node.url for node in worker_nodes]
+    worker_node_urls = [node.node_url for node in worker_nodes]
 
     try:
         tasks = []
